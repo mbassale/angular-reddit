@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Article} from "./article/article.model";
+import {Article} from './article/article.model';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +20,9 @@ export class AppComponent {
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
     console.log(`Adding article: ${title.value} and link: ${link.value}`);
+    this.articles.push(new Article(title.value, link.value));
+    title.value = '';
+    link.value = '';
     return false;
   }
 
